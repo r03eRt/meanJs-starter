@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrador de tareas</title>
+</head>
+<body ng="appTareas">
+
+    <div>
+      <h1>Administrador de Tareas</h1>
+    </div>
+    <form action="">
+      <h3>Editala tarea</h3>
+      <div>
+        <input type="text" placeholder="Tarea a realizar" ng-model="tarea.nombre" value="{{ tarea.nombre }}"></input>
+      </div>
+      <div>
+        <input type="text" placeholder="Prioridad" ng-model="tarea.prioridad" value="{{ tarea.prioridad }}"></input>
+      </div>
+      <div>
+        <button type="submit">Actualizar
+        </button>
+        <button type="submit">Eliminar
+        </button>
+      </div>
+    </form>
+    <div>
+      <a href="">Regresar</a>
+    </div>
+
+
+</body>
+</html>

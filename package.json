@@ -1,0 +1,16 @@
+{
+  "name": "meanjs",
+  "version": "1.0.0",
+  "description": "Test of meanjs stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roberto MorgadoLuengo",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "express-generator": "^4.13.4",
+    "mongodb": "^2.2.10"
+  }
+}
