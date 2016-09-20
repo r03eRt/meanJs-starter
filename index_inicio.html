@@ -3,31 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <title>Administrador de tareas</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" media="screen" title="no title">
 </head>
-<body ng="appTareas">
-
-    <div>
+<body ng-app="appTareas">
+    <div class="page-header">
       <h1>Administrador de Tareas</h1>
     </div>
-    <form action="">
-      <h3>Editala tarea</h3>
+    <div class="container col-md-4 col-md-offset-4 ">
+      <form>
+        <h3>Añade una tarea nueva</h3>
+          <div class="inner-addon right-addon">
+              <i class="glyphicon glyphicon-list"></i>
+              <input type="text" placeholder="Tarea a realizar" class="form-control" ng-model="tarea.nombre" />
+          </div>
+
+        <div>
+          <i class="glyphicon glyphicon-time"></i>
+          Elige la prioridad:
+          <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="Baja">  Baja
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="Normal">  Normal
+          </label>
+          <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="Alta">  Alta
+          </label>
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Agregar</button>
+      </form>
       <div>
-        <input type="text" placeholder="Tarea a realizar" ng-model="tarea.nombre" value="{{ tarea.nombre }}"></input>
+        <h4>Tareas registradas</h4>
+        <div class="item">
+          <span class="glyphicon glyphicon-circle-arrow-up"></span>
+          <span class="glyphicon glyphicon-circle-arrow-down"></span>
+
+          <span> + - </span>
+          {{ prioridad }}
+          <span>
+            <a href="">{{ tarea.nombre }}</a>
+              <span class="glyphicon glyphicon-edit"></span>
+              <span class="glyphicon glyphicon-remove"></span>
+          </span>
+        </div>
       </div>
-      <div>
-        <input type="text" placeholder="Prioridad" ng-model="tarea.prioridad" value="{{ tarea.prioridad }}"></input>
-      </div>
-      <div>
-        <button type="submit">Actualizar
-        </button>
-        <button type="submit">Eliminar
-        </button>
-      </div>
-    </form>
-    <div>
-      <a href="">Regresar</a>
     </div>
 
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
