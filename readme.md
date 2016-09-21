@@ -9,3 +9,7 @@
 ``mkdir models`` --> Folder with all models used
 
 ``npm start`` --> for start the webserver on port 3000
+
+## 1.- Create routes with ui-router
+
+## 2.- Create views

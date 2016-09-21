@@ -1,0 +1,38 @@
+<form>
+  <h3>Añade una tarea nueva</h3>
+    <div class="inner-addon right-addon">
+        <i class="glyphicon glyphicon-list"></i>
+        <input type="text" placeholder="Tarea a realizar" class="form-control" ng-model="tarea.nombre" />
+    </div>
+
+  <div>
+    <i class="glyphicon glyphicon-time"></i>
+    Elige la prioridad:
+    <label class="radio-inline">
+      <input type="radio" ng-model="tarea.prioridad" value="0">  Baja
+    </label>
+    <label class="radio-inline">
+      <input type="radio" ng-model="tarea.prioridad" value="1">  Normal
+    </label>
+    <label class="radio-inline">
+      <input type="radio" ng-model="tarea.prioridad" value="2">  Alta
+    </label>
+  </div>
+  <button type="submit" name="button" class="btn btn-success" ng-click="agregar()">Agregar</button>
+</form>
+{{ tareas }}
+<div>
+  <h4>Tareas registradas</h4>
+  <div class="item">
+    <span class="glyphicon glyphicon-circle-arrow-up"></span>
+    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+
+    <span> + - </span>
+    {{ prioridad }}
+    <span>
+      <a href="">{{ tarea.nombre }}</a>
+        <span class="glyphicon glyphicon-edit" ui-sref="editar({id:5})"></span>
+        <span class="glyphicon glyphicon-remove"></span>
+    </span>
+  </div>
+</div>
