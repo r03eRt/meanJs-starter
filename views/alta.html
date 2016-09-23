@@ -20,19 +20,18 @@
   </div>
   <button type="submit" name="button" class="btn btn-success" ng-click="agregar()">Agregar</button>
 </form>
-{{ tareas }}
 <div>
   <h4>Tareas registradas</h4>
-  <div class="item">
-    <span class="glyphicon glyphicon-circle-arrow-up"></span>
-    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+  <!-- item -->
+  <div class="item" ng-repeat="tarea in tareas | orderBy: '-prioridad'">
+    <span class="glyphicon glyphicon-circle-arrow-up" ng-click="masPrioridad(tarea)" ng-hide="tarea.prioridad == 2"></span>
+    <span class="glyphicon glyphicon-circle-arrow-down" ng-click="menosPrioridad(tarea)" ng-hide="tarea.prioridad == 0"></span>
+    <span>{{ prioridades[tarea.prioridad] }}</span> |
 
-    <span> + - </span>
-    {{ prioridad }}
     <span>
       <a href="">{{ tarea.nombre }}</a>
         <span class="glyphicon glyphicon-edit" ui-sref="editar({id:5})"></span>
-        <span class="glyphicon glyphicon-remove"></span>
+        <span class="glyphicon glyphicon-remove" ng-click="eliminar(tarea)"></span>
     </span>
   </div>
 </div>
