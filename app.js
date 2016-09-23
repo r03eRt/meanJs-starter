@@ -76,6 +76,18 @@ angular.module('appTareas', ['ui.router'])
 
   }])
   .controller('ctrlEditar',['$scope','comun','$state',function($scope,comun,$state){
-
     $scope.tarea = comun.tarea;
+
+    $scope.actualizar = function(){
+      var indice = comun.tareas.indexOf(comun.tarea);
+      comun.tareas[indice] = $scope.tarea;
+      $state.go('alta');
+    }
+
+    $scope.eliminar = function(){
+      comun.eliminar($scope.tarea);
+      $state.go('alta');
+    }
+
+
   }]);

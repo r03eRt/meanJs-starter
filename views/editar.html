@@ -6,7 +6,7 @@
   </div>
   <div>
     <i class="glyphicon glyphicon-time"></i>
-    Elige la prioridad: 
+    Elige la prioridad:
     <label class="radio-inline">
       <input type="radio" ng-model="tarea.prioridad" value="Baja">  Baja
     </label>
@@ -18,8 +18,8 @@
     </label>
   </div>
   <div class="text-center editBtn">
-    <button class="btn btn-success btn-sm" type="submit">Actualizar</button>
-    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+    <button class="btn btn-success btn-sm" type="submit" ng-click="actualizar()">Actualizar</button>
+    <button class="btn btn-danger btn-sm" type="submit" ng-click="eliminar()">Eliminar</button>
   </div>
 </form>
 <div>
