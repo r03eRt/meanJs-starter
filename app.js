@@ -9,13 +9,42 @@ angular.module('appTareas', ['ui.router'])
     .state('editar',{
       url:'/editar/{id}',
       templateUrl: 'views/editar.html',
-      controller: 'CtrlEditar'
+      controller: 'ctrlEditar'
     });
     $urlRouterProvider.otherwise('alta');
   })
-  .controller('ctrlAlta',['$scope',function($scope){
+  .factory('comun', [function(){
+    var comun = {};
+    comun.tareas = [
+      {
+      nombre: 'Comprar comida1',
+      prioridad: '1'
+      },
+      {
+      nombre: 'Comprar comida2',
+      prioridad: '2'
+      },
+      {
+      nombre: 'Comprar comida3',
+      prioridad: '0'
+      }
+    ];
+
+    // Variable que voy a pasar entre vistas
+    comun.tarea = {};
+
+    comun.eliminar = function(tarea){
+      var indice = comun.tareas.indexOf(tarea);
+      comun.tareas.splice(indice, 1);
+    }
+
+    return comun;
+
+  }])
+  .controller('ctrlAlta',['$scope','comun','$state',function($scope,comun,$state){
     $scope.tarea= {};
-    $scope.tareas = [];
+    //$scope.tareas = [];
+    $scope.tareas = comun.tareas;
     $scope.prioridades = ['Baja', 'Media', 'Alta']
 
     $scope.agregar = function(){
@@ -37,7 +66,16 @@ angular.module('appTareas', ['ui.router'])
     }
 
     $scope.eliminar = function(tarea){
-      var indice = $scope.tareas.indexOf(tarea);
-      $scope.tareas.splice(indice, 1);
+      comun.eliminar(tarea);
     }
+
+    $scope.procesarObjeto = function(tarea){
+      comun.tarea = tarea;
+      $state.go('editar');
+    }
+
+  }])
+  .controller('ctrlEditar',['$scope','comun','$state',function($scope,comun,$state){
+
+    $scope.tarea = comun.tarea;
   }]);
