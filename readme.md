@@ -10,9 +10,9 @@
 
 ``npm start`` --> For start the webserver on port 3000
 
-``brew services start mongodb`` --> Start service of mongodb
+``sudo brew services start mongodb`` --> Start service of mongodb
 
-``mongo``
+``sudo mongo`` --> Start server in localhost:300 0
 
 ### 1.- Create routes with ui-router
 
@@ -37,13 +37,13 @@
 ``var mongoose = require('mongoose');``
 
 ``// definimos los datos del modelo``
-``var tareaSchema = new mongoose.Schema({``
+``var tareasSchema = new mongoose.Schema({``
 ``  nombre: String,``
 ``  prioridad: Number``
 ``});``
 
 ``// Definimos el nombre del modelo a su schema``
-``mongoose.model('Tarea', tareaSchema);``
+``mongoose.model('Tareas', tareasSchema);``
 
 - Include the conection and model in main configuration file of Express (``project/app.js``)
 
@@ -59,11 +59,41 @@
 #### API REST
 GET /model
 POST /model
-PUT DELETE /model
+PUT /model
+DELETE /model
 
-localhost:3000/model
+``call url localhost:3000/model``
+
 #### CRUD
-CREATE 
-RETRIEVE 
-UPDATE 
-DELETE 
+CREATE
+RETRIEVE
+UPDATE
+DELETE
+
+### 7.- Create a API REST method
+
+- Go to router file ``project/routes/index.js``
+
+- Add mongose to get the models and define the method
+
+``// Add mongose to our rote and import models``
+``var mongoose = require('mongoose');``
+``var Tareas = mongoose.model('Tareas');``
+
+``// GET - Listar tareas``
+``router.get('/tareas',function(req, res, next){``
+``  Tareas.find(function(err, tareas){``
+``    if(err)``
+``      return next(err);``
+``    res.json(tareas);``
+``  })``
+``});``
+
+- Test the enviroment
+  - ``npm start``
+  - with - ``x-www-form-urlncoded``
+  - API methods
+    - GET ``localhost:3000/tareas``
+    - POST ``localhost:3000/tarea``
+    - PUT ``localhost:3000/tarea/id_tarea``
+    - DELETE ``localhost:3000/tarea/id_tarea``
