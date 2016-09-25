@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 require('./models/Tareas');
+
 mongoose.connect('mongodb://localhost/tareas');
 
 

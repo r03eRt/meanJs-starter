@@ -76,18 +76,18 @@ DELETE
 
 - Add mongose to get the models and define the method
 
-``// Add mongose to our rote and import models``
-``var mongoose = require('mongoose');``
-``var Tareas = mongoose.model('Tareas');``
+``// Add mongose to our rote and import models``</br>  
+``var mongoose = require('mongoose');``</br>
+``var Tareas = mongoose.model('Tareas');``</br>
 
-``// GET - Listar tareas``
-``router.get('/tareas',function(req, res, next){``
-``  Tareas.find(function(err, tareas){``
-``    if(err)``
-``      return next(err);``
-``    res.json(tareas);``
-``  })``
-``});``
+``// GET - Listar tareas``</br>
+``router.get('/tareas',function(req, res, next){``</br>
+``  Tareas.find(function(err, tareas){``</br>
+``    if(err)``</br>
+``      return next(err);``</br>
+``    res.json(tareas);``</br>
+``  })``</br>
+``});``</br>
 
 - Test the enviroment
   - ``npm start``
